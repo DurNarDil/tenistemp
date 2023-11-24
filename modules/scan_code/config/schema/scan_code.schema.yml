@@ -1,0 +1,27 @@
+scan_code.settings:
+  type: mapping
+  label: 'Barcode settings.'
+  mapping:
+    _core:
+      type: _core_config_info
+    langcode:
+      type: string
+      label: 'Language code'
+    status_on_load:
+      type: string
+      label: 'Status on load'
+    close_after_scanning:
+      type: string
+      label: 'Need to close after scanning?'
+    text_barcode_reading:
+      type: string
+      label: 'Text during barcode reading process'
+    delay:
+      type: string
+      label: 'Delay'
+    patterns:
+      type: string
+      label: 'Patterns'
+    widgets:
+      type: string
+      label: 'Widgets list'
