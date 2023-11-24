@@ -1,0 +1,49 @@
+uuid: f106578c-b79a-4e1b-bbf6-f5335b185f70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.rezultat.field_porazenka
+    - field.field.node.rezultat.field_rezultat
+    - field.field.node.rezultat.field_zmagovalka
+    - node.type.rezultat
+id: node.rezultat.default
+targetEntityType: node
+bundle: rezultat
+mode: default
+content:
+  field_porazenka:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rezultat:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_zmagovalka:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

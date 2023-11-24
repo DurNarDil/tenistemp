@@ -1,0 +1,19 @@
+uuid: 8926ca20-ca2e-4edf-8828-423c836cf1d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.igralka
+  module:
+    - user
+id: node.igralka.default
+targetEntityType: node
+bundle: igralka
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

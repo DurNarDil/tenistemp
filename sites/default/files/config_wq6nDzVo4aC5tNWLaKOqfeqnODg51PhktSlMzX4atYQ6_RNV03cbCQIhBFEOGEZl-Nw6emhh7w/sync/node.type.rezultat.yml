@@ -1,0 +1,18 @@
+uuid: f2108f64-e183-432d-8b98-ddd46535821b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Rezultat
+type: rezultat
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false
