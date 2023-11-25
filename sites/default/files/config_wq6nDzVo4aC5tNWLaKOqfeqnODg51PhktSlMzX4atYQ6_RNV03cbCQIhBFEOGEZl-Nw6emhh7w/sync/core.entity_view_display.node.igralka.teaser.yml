@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.igralka.field_tocke
     - node.type.igralka
   module:
     - user
@@ -17,4 +18,10 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
-hidden: {  }
+  tocke:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_tocke: true

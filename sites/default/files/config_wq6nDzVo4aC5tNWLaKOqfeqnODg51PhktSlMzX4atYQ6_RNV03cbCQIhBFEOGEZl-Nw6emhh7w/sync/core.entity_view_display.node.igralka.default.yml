@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.igralka.field_tocke
     - node.type.igralka
   module:
     - user
@@ -11,9 +12,23 @@ targetEntityType: node
 bundle: igralka
 mode: default
 content:
+  field_tocke:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  tocke:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden: {  }
