@@ -30,7 +30,21 @@ class Tocke implements TockeInterface{
   /**
    * {@inheritdoc}
    */
-  public function calculatePoints(NodeInterface $igralka): int {
+  public function calculatePoints(): void {
+    $igralke = $this->entityTypeManager->getStorage('node')
+      ->loadByProperties(['type' => 'igralka']);
+    /** @var NodeInterface $igralka */
+    foreach ($igralke as $igralka) {
+      $tocke = $this->calculateSinglePoints($igralka);
+      $igralka->set('field_tocke', $tocke);
+      $igralka->save();
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function calculateSinglePoints(NodeInterface $igralka): int {
     $winsQ = $this->entityTypeManager->getStorage('node')->getQuery();
     $winsQ->count()->condition('type', 'rezultat')->condition('field_zmagovalka', $igralka->id());
     /** @var int $wins */
@@ -40,7 +54,8 @@ class Tocke implements TockeInterface{
     $losesQ->count()->condition('type', 'rezultat')->condition('field_porazenka', $igralka->id());
     /** @var int $loses */
     $loses = $losesQ->execute();
-    return 3*$wins + $loses;
+    $result = 3*$wins + $loses;
+    return $result;
   }
 
 }

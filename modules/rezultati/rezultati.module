@@ -46,3 +46,21 @@ function rezultati_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     $form['title']['#access'] = FALSE;
   }
 }
+
+/**
+ * Implements hook_entity_insert().
+ */
+function rezultati_entity_insert(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() === 'rezultat') {
+    $tocke = Drupal::service('rezultati.tocke')->calculatePoints();
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function rezultati_entity_delete(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() === 'rezultat') {
+    $tocke = Drupal::service('rezultati.tocke')->calculatePoints();
+  }
+}
