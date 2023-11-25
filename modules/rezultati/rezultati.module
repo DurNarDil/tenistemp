@@ -5,44 +5,12 @@
  * Primary module hooks for Rezultati module.
  */
 
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\node\NodeInterface;
-
-/**
- * Implements hook_entity_view().
- */
-function rezultati_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode): void {
-  if ($entity->bundle() == 'igralka') {
-    $tocke = Drupal::service('rezultati.tocke')->calculatePoints($entity);
-
-    $build['tocke'] = [
-      '#markup' => '<div class="field field-name-custom-reference-count">Število točk: ' . $tocke . '</div>',
-    ];
-  }
-}
-
-/**
- * Implements hook_entity_extra_field_info().ddev start
- */
-function rezultati_entity_extra_field_info() {
-  $extra['node']['igralka']['display']['tocke'] = [
-    'label' => t('Tocke'),
-    'description' => t('Displays the number of references in the reference field.'),
-    'weight' => 0,
-  ];
-
-  return $extra;
-}
-
 /**
  * Implements hook_form_alter().
  */
 function rezultati_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'node_rezultat_form') {
-    // Set a predefined value for the title field.
     $form['title']['widget'][0]['value']['#default_value'] = 'Punce rezultat';
-    // Disable the title field.
     $form['title']['#access'] = FALSE;
   }
 }
