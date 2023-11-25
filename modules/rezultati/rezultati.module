@@ -7,16 +7,17 @@
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_entity_view().
  */
 function rezultati_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode): void {
   if ($entity->bundle() == 'igralka') {
-    $references = 'tocke 123';
+    $tocke = Drupal::service('rezultati.tocke')->calculatePoints($entity);
 
-    $build['custom_reference_count'] = [
-      '#markup' => '<div class="field field-name-custom-reference-count">Number of References: ' . $references . '</div>',
+    $build['tocke'] = [
+      '#markup' => '<div class="field field-name-custom-reference-count">Število točk: ' . $tocke . '</div>',
     ];
   }
 }
@@ -32,4 +33,16 @@ function rezultati_entity_extra_field_info() {
   ];
 
   return $extra;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function rezultati_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'node_rezultat_form') {
+    // Set a predefined value for the title field.
+    $form['title']['widget'][0]['value']['#default_value'] = 'Punce rezultat';
+    // Disable the title field.
+    $form['title']['#access'] = FALSE;
+  }
 }

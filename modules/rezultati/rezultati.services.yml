@@ -1,0 +1,4 @@
+services:
+  rezultati.tocke:
+    class: Drupal\rezultati\Tocke
+    arguments: ['@entity_type.manager']
