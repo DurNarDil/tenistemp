@@ -1,3 +1,4 @@
 /.gitignore
-/ddev
+/ddev/
 /vendor/drush/
+/sites/default/files/php/
