@@ -1,0 +1,20 @@
+uuid: 9003220f-26e5-43e5-8a06-f093392002ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tocke
+field_name: field_tocke
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

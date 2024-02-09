@@ -1,0 +1,25 @@
+uuid: 2c2d56e0-758c-42c9-b506-987e64a54494
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tocke
+    - node.type.igralka
+id: node.igralka.field_tocke
+field_name: field_tocke
+entity_type: node
+bundle: igralka
+label: Tocke
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

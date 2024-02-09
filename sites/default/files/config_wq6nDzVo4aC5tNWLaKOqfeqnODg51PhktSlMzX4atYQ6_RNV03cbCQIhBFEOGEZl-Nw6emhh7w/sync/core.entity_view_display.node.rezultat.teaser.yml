@@ -1,0 +1,26 @@
+uuid: a78f3919-6377-45d0-b30e-8475c2870778
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.rezultat.field_porazenka
+    - field.field.node.rezultat.field_rezultat
+    - field.field.node.rezultat.field_zmagovalka
+    - node.type.rezultat
+  module:
+    - user
+id: node.rezultat.teaser
+targetEntityType: node
+bundle: rezultat
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_porazenka: true
+  field_rezultat: true
+  field_zmagovalka: true
