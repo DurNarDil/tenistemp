@@ -2,3 +2,6 @@
 /ddev/
 /vendor/drush/
 /sites/default/files/php/
+/sites/default/files/css/
+/sites/default/files/js/
+/sites/default/files/default.settings.php
